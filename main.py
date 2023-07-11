@@ -5,8 +5,6 @@ from dotenv import load_dotenv, find_dotenv
 from langchain.document_loaders import PyPDFLoader
 from langchain.indexes import VectorstoreIndexCreator
 from pypdf import PdfReader
-import os
-import openai
 
 sys.path.append('../..')
 openai.api_key = os.environ["OPENAI_API_KEY"]
