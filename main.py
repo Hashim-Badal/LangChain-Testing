@@ -1,15 +1,16 @@
 import os
 import openai
 import sys
-from dotenv import load_dotenv, find_dotenv
-from langchain.document_loaders import PyPDFLoader
+#from dotenv import load_dotenv, find_dotenv
+from langchain.document_loaders import TextLoader
 from langchain.indexes import VectorstoreIndexCreator
 from pypdf import PdfReader
 
 sys.path.append('../..')
 openai.api_key = os.environ["OPENAI_API_KEY"]
+PATH = os.environ["LANGCHAIN_TESTING_PATH"]
 
-loader1 = PyPDFLoader("/Users/hashim.bukhtiar/Desktop/Technical Roadmap/LangChainTesting/Sample_PDF.pdf")
+loader1 = TextLoader(f"{PATH}/Sample_TXT.txt")
 
 index = VectorstoreIndexCreator().from_loaders([loader1])
 
